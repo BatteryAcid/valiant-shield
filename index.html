@@ -3,38 +3,88 @@
 
    <head>
       <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, initial-scale=1, user-scalable=no"
-      />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="apple-touch-fullscreen" content="yes" />
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-      <meta name="mobile-web-app-capable" content="yes">
-      <title>The Defender!</title>
-
-      <link rel="stylesheet" href="css/styles.css" />
-      <!-- NOTE: use when not using minified source from dist -->
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.8.2/phaser.min.js"></script> -->
-
+      <title>hello phaser!</title>
+      <!-- <script src="//cdn.jsdelivr.net/phaser/2.5.0/phaser.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.8.2/phaser.min.js"></script>
+      <script src="lib/phaser-plugin-isometric.min.js"></script>
    </head>
 
    <body>
-      <script src="dist/the-defender.min.js"></script>
-      <!--  NOTE: uncomment when not using above minified source -->
-      <!-- <script src="src/init.js"></script>
-      <script src="src/zoom.js"></script>
-      <script src="src/good-guy.js"></script>
-      <script src="src/bad-guys.js"></script>
-      <script src="src/bullets.js"></script>
-      <script src="src/scope.js"></script>
-      <script src="src/level-manager.js"></script>
-      <script src="src/levels.js"></script>
-      <script src="src/input.js"></script>
-      <script src="src/main-menu.js"></script>
-      <script src="src/level-complete-menu.js"></script>
-      <script src="src/level-menu.js"></script>
-      <script src="src/main.js"></script>
-      <script src="src/boot.js"></script> -->
+      <script type="text/javascript">
+      window.onload = function() {
+         var game = new Phaser.Game(800, 400, Phaser.AUTO, 'test', null, true, false);
 
+         var BasicGame = function(game) {};
+
+         BasicGame.Boot = function(game) {};
+
+         var isoGroup, sorted;
+
+         BasicGame.Boot.prototype = {
+            preload: function() {
+               game.load.image('cube', '../images/m.png');
+
+               game.time.advancedTiming = true;
+
+               // Add and enable the plug-in.
+               game.plugins.add(new Phaser.Plugin.Isometric(game));
+
+               // This is used to set a game canvas-based offset for the 0, 0, 0 isometric coordinate - by default
+               // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.
+               game.iso.anchor.setTo(0.5, 0.2);
+
+            },
+            create: function() {
+               // Create a group for our tiles, so we can use Group.sort
+               isoGroup = game.add.group();
+
+               // Let's make a load of cubes on a grid, but do it back-to-front so they get added out of order.
+               var cube;
+               for (var xx = 256; xx > 0; xx -= 48) {
+                  for (var yy = 256; yy > 0; yy -= 48) {
+                     // Create a cube using the new game.add.isoSprite factory method at the specified position.
+                     // The last parameter is the group you want to add it to (just like game.add.sprite)
+                     cube = game.add.isoSprite(xx, yy, 0, 'cube', 0, isoGroup);
+                     cube.anchor.set(0.5)
+
+                     // Store the old messed up ordering so we can compare the two later.
+                     cube.oldZ = cube.z;
+
+                     // Add a slightly different tween to each cube so we can see the depth sorting working more easily.
+                     game.add.tween(cube).to({
+                        isoZ: 10
+                     }, 100 * ((xx + yy) % 10), Phaser.Easing.Quadratic.InOut, true, 0, Infinity, true);
+                  }
+               }
+
+               // Just a var so we can tell if the group is sorted or not.
+               sorted = false;
+
+               // Toggle sorting on click/tap.
+               game.input.onDown.add(function() {
+                  sorted = !sorted;
+                  if (sorted) {
+                     game.iso.simpleSort(isoGroup);
+                  } else {
+                     isoGroup.sort('oldZ');
+                  }
+               }, this);
+
+            },
+            update: function() {
+
+            },
+            render: function() {
+               game.debug.text("Click to toggle! Sorting enabled: " + sorted, 2, 36, "#ffffff");
+               game.debug.text(game.time.fps || '--', 2, 14, "#a7aebe");
+            }
+         };
+
+         game.state.add('Boot', BasicGame.Boot);
+         game.state.start('Boot');
+
+      };
+      </script>
    </body>
 
 </html>
