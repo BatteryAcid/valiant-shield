@@ -1,7 +1,7 @@
 {
-  "name": "the-defender",
+  "name": "valiant-shield",
   "version": "1.0.0",
-  "description": "the defender game",
+  "description": "valiant shield",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^3.9.1",
@@ -22,14 +22,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BatteryAcid/the-defender.git"
-  },
-  "author": "Bruce Shaw",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/BatteryAcid/the-defender/issues"
-  },
-  "homepage": "https://github.com/BatteryAcid/the-defender#readme"
+  "author": "Fractal Stack"
 }
