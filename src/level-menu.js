@@ -117,8 +117,8 @@
          }, this);
 
          this.scrollingMap.events.onDragStop.add(function(event, pointer) {
-            if (this.scrollingMap.startPosition == this.scrollingMap.x && this.scrollingMap.startPointerPosition
-               .x == pointer.x && this.scrollingMap.startPointerPosition.y == pointer.y) {
+            if (Math.abs(this.scrollingMap.startPosition - this.scrollingMap.x) <= 50 && Math.abs(this.scrollingMap.startPointerPosition
+                  .x - pointer.x) <= 50 && Math.abs(this.scrollingMap.startPointerPosition.y - pointer.y) <= 50) {
                for (i = 0; i < this.scrollingMap.children.length; i++) {
                   var bounds = this.scrollingMap.children[i].getBounds();
                   // before we start a level, let's check the level is not locked that means it's not on frame zero  
