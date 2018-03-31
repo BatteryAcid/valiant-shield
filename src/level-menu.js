@@ -87,7 +87,7 @@
 
                   //restrict numbers to unlocked levels
                   if (thumb.frame > 0) {
-                     var levelText = this.game.add.text(5, 0, thumb.levelNumber, {
+                     var levelText = this.game.add.text(5, 10, thumb.levelNumber, {
                         font: (thumb.height * .45) + "px Comic Sans MS",
                         fill: "#fff200",
                         stroke: "black",

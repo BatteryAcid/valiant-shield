@@ -13,8 +13,8 @@ window.onload = function() {
       document.getElementsByTagName('body')[0].appendChild(orientationDiv);
 
       //get correct game height and width
-      var gameWidth = this.gameWidth = window.innerHeight * window.devicePixelRatio;
-      var gameHeight = this.gameHeight = window.innerWidth * window.devicePixelRatio;
+      var gameWidth = window.innerHeight * window.devicePixelRatio;
+      var gameHeight = window.innerWidth * window.devicePixelRatio;
       if (window.innerWidth * window.devicePixelRatio > window.innerHeight * window.devicePixelRatio) {
          gameWidth = window.innerWidth * window.devicePixelRatio;
          gameHeight = window.innerHeight * window.devicePixelRatio;

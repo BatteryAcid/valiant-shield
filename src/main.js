@@ -1,4 +1,3 @@
-//TODO: hide nav bar
 //TODO: move level text down a little -  shows up too high on device
 //TODO: need to add cooldown period after first zooming in to prevent spam zooming
 //TODO: show quit while zoomed
