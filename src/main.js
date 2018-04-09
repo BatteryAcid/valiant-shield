@@ -1,8 +1,4 @@
-//TODO: move level text down a little -  shows up too high on device
-//TODO: need to add cooldown period after first zooming in to prevent spam zooming
 //TODO: show quit while zoomed
-//TODO: cartoonify the background images with photoshop?
-// - set bad guys around map edge so player has time to react
 // - dont send all bad guys at once, delay each guy but speed up his approach rate
 // - bad guy should do dmg when next to good guy
 // - good guy should try to avoid bad guys? maybe just set varying path
@@ -20,13 +16,15 @@
          this.levels = new TDG.Levels(this.game);
          this.levelManager = new TDG.LevelManager();
 
-         this.started = false;
+         TDG.STARTED = false;
 
          // add in order of desired layer
-         var background = this.game.add.image(0, TDG.GAME_HEIGHT, 'background');
+         var background = this.game.add.sprite(0, TDG.GAME_HEIGHT, 'background');
          background.width = TDG.GAME_WIDTH;
          background.height = TDG.GAME_HEIGHT;
          background.anchor.y = 1;
+         background.inputEnabled = true;
+         background.events.onInputDown.add(this.onInputDownOnBackground, this);
 
          this.badGuys = new TDG.BadGuys(this.game, this.levels);
          this.bullets = new TDG.Bullets(this.game);
@@ -39,14 +37,12 @@
          this.goodGuy = new TDG.GoodGuy(this.game, this.levels, this.levelManager.getNextLevel());
          this.badGuys.setupBadGuysForLevel(this.levelManager.getNextLevel());
 
-         this.scope = new TDG.Scope(this.game);
-         this.input = new TDG.Input(this.game, this.zoom, this.bullets, this.scope);
-         this.game.input.onTap.add(this.input.onTap.bind(this.input));
+         this.scope = new TDG.Scope(this.game, this.zoom, this.bullets);
 
          //quit button - actual size scaled down because it's actual size for pro screens is larger than necessary 
          var actualButtonHeight = 280 * .4;
          var buttonScale = (TDG.GAME_SCALE_Y * actualButtonHeight / 280);
-         var quitButton = this.game.add.button(TDG.GAME_WIDTH * .07, TDG.GAME_HEIGHT * .05, 'quit-button',
+         var quitButton = this.game.add.button(TDG.GAME_WIDTH * .93, TDG.GAME_HEIGHT * .05, 'quit-button',
             this.quitPlay, this, 2, 1, 0);
          quitButton.scale.setTo(buttonScale, buttonScale);
          quitButton.anchor.setTo(0.5, 0.5);
@@ -83,7 +79,8 @@
             this.game.add.existing(this.titleText);
 
             //good guy image
-            this.goodGuyImage = this.game.add.sprite(TDG.GAME_WIDTH * .5, TDG.GAME_HEIGHT * .75, 'goodguy-walk');
+            this.goodGuyImage = this.game.add.sprite(TDG.GAME_WIDTH * .5, TDG.GAME_HEIGHT * .75,
+               'goodguy-walk');
             this.goodGuyImage.anchor.setTo(.5, .5);
             this.goodGuyImage.scale.setTo(1.5 * TDG.GAME_SCALE_Y);
 
@@ -96,7 +93,11 @@
          } else {
             this.startGame();
          }
-
+      },
+      onInputDownOnBackground: function(game, pointer) {
+         this.zoom.zoomTo(4, pointer);
+         TDG.ZOOMED_IN = true;
+         this.scope.centerOnLocation(pointer);
       },
       startGame: function() {
          if (this.startGameButton) {
@@ -111,11 +112,13 @@
          if (this.goodGuyImage) {
             this.goodGuyImage.destroy();
          }
-         this.started = true;
+         TDG.STARTED = true;
          this.startTime = new Date();
       },
       levelComplete: function(isLevelSuccess, levelState) {
          this.endTime = new Date();
+         TDG.STARTED = false;
+         this.levelStatus = levelState;
 
          var starRating = -1;
          if (isLevelSuccess === true) {
@@ -147,17 +150,17 @@
          return Math.abs(secondsBetweenStartEndTimes);
       },
       levelSuccess: function() {
-         if (this.levelStatus !== "failed" || this.levelStatus !== "quit") {
+         if (this.levelStatus !== TDG.LEVEL_FAILED_STATE && this.levelStatus !== TDG.LEVEL_QUIT_STATE) {
             this.levelComplete(true, TDG.LEVEL_COMPLETE_STATE);
          }
       },
       levelFail: function() {
-         if (this.levelStatus !== "quit") {
+         if (this.levelStatus !== TDG.LEVEL_QUIT_STATE) {
             this.levelComplete(false, TDG.LEVEL_FAILED_STATE);
          }
       },
       quitPlay: function() {
-         this.levelStatus = "quit";
+         this.levelStatus = TDG.LEVEL_QUIT_STATE;
          this.resetZoom();
          this.game.state.start('main-menu', true, false, TDG.LEVEL_QUIT_STATE);
       },
@@ -184,7 +187,7 @@
       goodGuyHit: function(goodGuyKilled, badguy) {
          //console.log("good guy hit");
 
-         this.levelStatus = "failed";
+         this.levelStatus = TDG.LEVEL_FAILED_STATE;
 
          var goodGuyKillSprite = this.game.add.sprite(goodGuyKilled.x, goodGuyKilled.y, "goodguy-kill");
          goodGuyKillSprite.anchor.setTo(0, 0);
@@ -205,7 +208,7 @@
          }
       },
       update: function() {
-         if (this.started === true) {
+         if (TDG.STARTED === true) {
             // check if good guy reached finish
             if (this.goodGuy.currentHeight() > this.levelConfigs.goodGuy.successY && this.goodGuy.currentWidth() <
                this.levelConfigs.goodGuy.successX) {
@@ -225,14 +228,7 @@
             );
 
             //scales bullet's hitbox based on zoom
-            //TODO: consider moving this to a function within the bullet class
-            this.bullets.getBulletGroup().forEach(function(bullet) {
-               if (TDG.ZOOMED_IN === false) {
-                  bullet.body.setSize(5, 5, 5, 5);
-               } else {
-                  bullet.body.setSize(50, 50, -15, -20);
-               }
-            }, this.game.physics);
+            this.bullets.setBulletScale(this.game);
          }
       },
       render: function() {

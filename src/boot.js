@@ -49,6 +49,7 @@
          this.game.load.image('menu-bg', 'images/bg1.jpg');
          this.game.load.image('title-backdrop', 'images/title-backdrop.png');
          this.game.load.image('intro-backdrop', 'images/intro-backdrop.png');
+         this.game.load.image('zoom-out-icon', 'images/zoom-out-icon.png');
          this.game.load.spritesheet('button', 'images/button.png', 193, 71);
          this.game.load.spritesheet('start-button', 'images/start.png', 791, 280);
          this.game.load.spritesheet('introstart-button', 'images/introstart.png', 791, 280);
