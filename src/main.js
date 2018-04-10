@@ -31,6 +31,9 @@
 
          //had to create this group so that the bullets appear on top of background
          this.gameGroup = this.game.add.group();
+         //dead group must be before the bad guys so that they walk on top
+         this.deadGroup = this.game.add.group();
+         this.gameGroup.add(this.deadGroup);
          this.gameGroup.add(this.bullets.getBulletGroup());
          this.gameGroup.add(this.badGuys.getBadGuyGroup());
 
@@ -176,14 +179,13 @@
       badGuyHit: function(badguy, bullet) {
          //console.log("bad guy hit");
 
-         //TODO: create deadBadGuyGroup that renders behind alive badguys and good guys
          var badGuyKillSprite = this.game.add.sprite(badguy.x, badguy.y, "badguy-kill");
          badGuyKillSprite.anchor.setTo(0, 0);
          badGuyKillSprite.animations.add('badGuyKill');
          badGuyKillSprite.animations.play('badGuyKill', 30, false);
          badGuyKillSprite.scale.setTo(TDG.GAME_SCALE_Y * .25);
          //makes the dead bodies appear in correct layer
-         this.gameGroup.add(badGuyKillSprite);
+         this.deadGroup.add(badGuyKillSprite);
 
          // remove bullet and bad guy
          badguy.kill();
@@ -204,7 +206,7 @@
          goodGuyKillSprite.animations.play('goodGuyKill', 30, false);
          goodGuyKillSprite.scale.setTo(TDG.GAME_SCALE_Y * .25);
          //makes the dead bodies appear in correct layer
-         this.gameGroup.add(goodGuyKillSprite);
+         this.deadGroup.add(goodGuyKillSprite);
 
          goodGuyKilled.kill();
 
