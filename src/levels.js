@@ -42,7 +42,7 @@
             },
             background: "bg1.png",
             menuColor: "0x00CC99",
-            introText: "Protect our hero from the growing malice! Double tap to zoom, tap once to fire."
+            introText: "Protect our hero from the growing malice! Tap to zoom then tap to fire.       to zoom out"
          },
          1: {
             badGuyLocationX: function(count) {

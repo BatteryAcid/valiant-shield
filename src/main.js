@@ -71,7 +71,7 @@
                   fill: '#FFCD3A',
                   align: 'center',
                   wordWrap: true,
-                  wordWrapWidth: this.introBackdrop.width * .9
+                  wordWrapWidth: this.introBackdrop.width * .85
                });
 
             this.titleText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
@@ -83,6 +83,12 @@
                'goodguy-walk');
             this.goodGuyImage.anchor.setTo(.5, .5);
             this.goodGuyImage.scale.setTo(1.5 * TDG.GAME_SCALE_Y);
+
+            //zoom button icon example
+            this.zoomButtonImage = this.game.add.sprite(this.titleText.x - (TDG.GAME_SCALE_Y * 600), this.titleText.y * 1.35,
+               'zoom-out-icon');
+            this.zoomButtonImage.anchor.setTo(.5, .5);
+            this.zoomButtonImage.scale.setTo(.2 * TDG.GAME_SCALE_Y);
 
             this.startGameButton = this.game.add.button(TDG.GAME_WIDTH * .5, this.introBackdrop.height * 1.07,
                'introstart-button',
@@ -111,6 +117,9 @@
          }
          if (this.goodGuyImage) {
             this.goodGuyImage.destroy();
+         }
+         if (this.zoomButtonImage) {
+            this.zoomButtonImage.destroy();
          }
          TDG.STARTED = true;
          this.startTime = new Date();

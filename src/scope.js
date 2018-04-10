@@ -30,11 +30,11 @@
          this.x = pointer.x;
          this.y = pointer.y;
 
-         this.zoomOutButton = game.add.sprite((this.game.camera.x / 4 ) + (TDG.GAME_SCALE_Y * 50), (this.game.camera
-            .y / 4) + (TDG.GAME_SCALE_Y * 50), 'zoom-out-icon');
+         this.zoomOutButton = game.add.sprite((this.game.camera.x / 4) + (this.zoomWidth - TDG.GAME_SCALE_Y * 50), (this.game.camera
+            .y / 4) + (this.zoomHeight * .5 - TDG.GAME_SCALE_Y * 50), 'zoom-out-icon');
          this.zoomOutButton.anchor.set(0.5);
          this.zoomOutButton.inputEnabled = true;
-         this.zoomOutButton.scale.setTo(TDG.GAME_SCALE_Y * 1.5);
+         this.zoomOutButton.scale.setTo(TDG.GAME_SCALE_Y * .08);
          this.zoomOutButton.events.onInputDown.add(this.zoomOutClicked, this);
       }
    };
@@ -77,7 +77,8 @@
          .input.activePointer.positionDown.y, game.input.activePointer.x, game.input.activePointer.y
       ));
 
-      if (distanceFromLastUp < 5) {
+      //Note: adjust to allow for more tolerance of tap-move to trigger fire
+      if (distanceFromLastUp < 50) {
          return false;
       } else {
          return true;
