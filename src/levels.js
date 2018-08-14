@@ -40,7 +40,7 @@
                   maxDuration: 1.5
                }
             },
-            background: "bg1.png",
+            background: "background",
             menuColor: "0x00CC99",
             introText: "Protect our hero from the growing malice! Tap to zoom then tap to fire.       to zoom out"
          },
@@ -82,7 +82,7 @@
                   maxDuration: 2.5
                }
             },
-            background: "bg1.png",
+            background: "background",
             menuColor: "0xff5050"
          },
          2: {
@@ -123,7 +123,7 @@
                   maxDuration: 3.3
                }
             },
-            background: "bg1.png",
+            background: "background",
             menuColor: "0xff5050"
          },
          3: {
@@ -164,7 +164,7 @@
                   maxDuration: 5
                }
             },
-            background: "bg1.png",
+            background: "background",
             menuColor: "0xff5050"
          },
          4: {
@@ -205,7 +205,48 @@
                   maxDuration: 6
                }
             },
-            background: "bg1.png",
+            background: "background",
+            menuColor: "0xff5050"
+         },
+         5: {
+            badGuyLocationX: function(count) {
+               return TDG.GAME_WIDTH * .5 + (count * game.rnd.integerInRange(100, 200));
+            },
+            badGuyLocationY: function(count) {
+               return TDG.GAME_HEIGHT * (game.rnd.integerInRange(500, 700) / 1000);
+            },
+            badGuys: {
+               count: 5,
+               scale: 1,
+               image: 'badguy-walk',
+               animation: 'badGuyWalk',
+               speed: 80
+            },
+            goodGuy: {
+               scale: 1,
+               locationX: function() {
+                  return TDG.GAME_WIDTH * .8;
+               },
+               locationY: function() {
+                  return TDG.GAME_HEIGHT * .7;
+               },
+               move: function(goodGuyInstance) {
+                  goodGuyInstance.x += .3;
+               },
+               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
+               successY: TDG.GAME_HEIGHT * .1
+            },
+            scoring: {
+               two: {
+                  maxShotsFired: 7,
+                  maxDuration: 8
+               },
+               three: {
+                  maxShotsFired: 5,
+                  maxDuration: 6
+               }
+            },
+            background: "background2",
             menuColor: "0xff5050"
          }
       };

@@ -18,8 +18,12 @@
 
          TDG.STARTED = false;
 
+         //level configs set current level
+         this.levelConfigs = this.levels.getLevelConfigs(this.levelManager.getNextLevel());
+         this.levelManager.updateSelectedLevelToNextLevel();
+
          // add in order of desired layer
-         var background = this.game.add.sprite(0, TDG.GAME_HEIGHT, 'background');
+         var background = this.game.add.sprite(0, TDG.GAME_HEIGHT, this.levelConfigs.background);//'background');
          background.width = TDG.GAME_WIDTH;
          background.height = TDG.GAME_HEIGHT;
          background.anchor.y = 1;
@@ -49,10 +53,6 @@
             this.quitPlay, this, 2, 1, 0);
          quitButton.scale.setTo(buttonScale, buttonScale);
          quitButton.anchor.setTo(0.5, 0.5);
-
-         //level configs set current level
-         this.levelConfigs = this.levels.getLevelConfigs(this.levelManager.getNextLevel());
-         this.levelManager.updateSelectedLevelToNextLevel();
 
          //intro text with start button
          if (this.levelConfigs.introText && this.levelConfigs.introText != '') {
