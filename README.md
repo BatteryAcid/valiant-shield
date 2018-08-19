@@ -1,3 +1,9 @@
+# Demo
+
+[Valiant Shield Demo](https://rawgit.com/BatteryAcid/valiant-shield/master/index.html)
+
+---
+
 ## Create dist for use in ionic app ##
 
 - install gulp requirements.

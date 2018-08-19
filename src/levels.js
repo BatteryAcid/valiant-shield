@@ -25,7 +25,7 @@
                   return TDG.GAME_HEIGHT * .75;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3;
+                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
                },
                successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .1),
                successY: TDG.GAME_HEIGHT * .1
@@ -67,7 +67,7 @@
                   return TDG.GAME_HEIGHT * .75;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3;
+                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
                },
                successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
                successY: TDG.GAME_HEIGHT * .1
@@ -108,7 +108,7 @@
                   return TDG.GAME_HEIGHT * .75;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3
+                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
                },
                successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
                successY: TDG.GAME_HEIGHT * .1
@@ -149,7 +149,7 @@
                   return TDG.GAME_HEIGHT * .75;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3
+                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
                },
                successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
                successY: TDG.GAME_HEIGHT * .1
@@ -190,7 +190,7 @@
                   return TDG.GAME_HEIGHT * .7;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3;
+                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
                },
                successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
                successY: TDG.GAME_HEIGHT * .1
@@ -231,7 +231,7 @@
                   return TDG.GAME_HEIGHT * .7;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3;
+                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
                },
                successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
                successY: TDG.GAME_HEIGHT * .1
