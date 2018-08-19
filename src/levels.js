@@ -1,33 +1,44 @@
+//TODO: finish speed and badguy placement 
+
 (function() {
    var Levels = function(game) {
+
+      var background1 = "background";
+      var background2 = "background2";
 
       var levelConfigs = {
          0: {
             badGuyLocationX: function(count) {
-               return TDG.GAME_WIDTH * .05;
+               return this.goodGuy.locationX() - (200 * TDG.GAME_SCALE_X); //TDG.GAME_WIDTH * .05;
             },
             badGuyLocationY: function(count) {
-               return TDG.GAME_HEIGHT * .75;
+               return this.goodGuy.locationY() - (10 * TDG.GAME_SCALE_Y); //TDG.GAME_HEIGHT * .75;
             },
             badGuys: {
                count: 1,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: 40
+               speed: TDG.BASE_SPEED * 3
             },
             goodGuy: {
                scale: 1,
                locationX: function() {
-                  return TDG.GAME_WIDTH * .1;
+                  return TDG.GAME_WIDTH * .3;
                },
                locationY: function() {
-                  return TDG.GAME_HEIGHT * .75;
+                  return TDG.GAME_HEIGHT * .8;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
+                  //TODO: for fun you could randomize the point to which the good guys is aiming for to
+                  //simulate frantic running
+                  var radians = game.physics.arcade.angleToXY(goodGuyInstance, TDG.GAME_WIDTH, TDG.GAME_HEIGHT *
+                     .8);
+                  var degrees = radians * (180 / Math.PI);
+                  //number is speed here
+                  game.physics.arcade.velocityFromAngle(degrees, TDG.BASE_SPEED * .6, goodGuyInstance.body.velocity);
                },
-               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .1),
+               successX: TDG.GAME_WIDTH + (TDG.GAME_WIDTH * .1), //TODO remove these
                successY: TDG.GAME_HEIGHT * .1
             },
             scoring: {
@@ -40,9 +51,9 @@
                   maxDuration: 1.5
                }
             },
-            background: "background",
-            menuColor: "0x00CC99",
-            introText: "Protect our hero from the growing malice! Tap to zoom then tap to fire.       to zoom out"
+            background: background1
+            //,
+            //introText: "Protect our hero from the growing malice! Tap to zoom then tap to fire.       to zoom out"
          },
          1: {
             badGuyLocationX: function(count) {
@@ -82,8 +93,7 @@
                   maxDuration: 2.5
                }
             },
-            background: "background",
-            menuColor: "0xff5050"
+            background: background1
          },
          2: {
             badGuyLocationX: function(count) {
@@ -123,8 +133,7 @@
                   maxDuration: 3.3
                }
             },
-            background: "background",
-            menuColor: "0xff5050"
+            background: background1
          },
          3: {
             badGuyLocationX: function(count) {
@@ -164,8 +173,7 @@
                   maxDuration: 5
                }
             },
-            background: "background",
-            menuColor: "0xff5050"
+            background: background1
          },
          4: {
             badGuyLocationX: function(count) {
@@ -205,8 +213,7 @@
                   maxDuration: 6
                }
             },
-            background: "background",
-            menuColor: "0xff5050"
+            background: background1
          },
          5: {
             badGuyLocationX: function(count) {
@@ -246,8 +253,7 @@
                   maxDuration: 6
                }
             },
-            background: "background2",
-            menuColor: "0xff5050"
+            background: background2
          }
       };
 
