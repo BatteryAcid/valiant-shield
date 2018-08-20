@@ -273,70 +273,71 @@
                }
             },
             background: background1
-         },
-         5: {
-            badGuyLocationX: function(count) {
-               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
-            },
-            badGuyLocationY: function(count) {
-               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
-            },
-            badGuys: {
-               scale: 1,
-               image: 'badguy-walk',
-               animation: 'badGuyWalk',
-               speed: 80,
-               locations: [
-                  {
-                     x: 200,
-                     y: -100
-                  },
-                  {
-                     x: 200,
-                     y: 100
-                  },
-                  {
-                     x: -200,
-                     y: 200
-                  },
-                  {
-                     x: -200,
-                     y: 200
-                  },
-                  {
-                     x: -200,
-                     y: 200
-                  },
-                  {
-                     x: -200,
-                     y: 200
-                  }
-               ]
-            },
-            goodGuy: {
-               scale: 1,
-               locationX: function() {
-                  return TDG.GAME_WIDTH * .8;
-               },
-               locationY: function() {
-                  return TDG.GAME_HEIGHT * .7;
-               },
-               move: function(goodGuyInstance) {
-                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
-               }
-            },
-            scoring: {
-               two: {
-                  maxShotsFired: 7,
-                  maxDuration: 8
-               },
-               three: {
-                  maxShotsFired: 5,
-                  maxDuration: 6
-               }
-            },
-            background: background2
          }
+         // ,
+         // 5: {
+         //    badGuyLocationX: function(count) {
+         //       return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
+         //    },
+         //    badGuyLocationY: function(count) {
+         //       return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
+         //    },
+         //    badGuys: {
+         //       scale: 1,
+         //       image: 'badguy-walk',
+         //       animation: 'badGuyWalk',
+         //       speed: 80,
+         //       locations: [
+         //          {
+         //             x: 200,
+         //             y: -100
+         //          },
+         //          {
+         //             x: 200,
+         //             y: 100
+         //          },
+         //          {
+         //             x: -200,
+         //             y: 200
+         //          },
+         //          {
+         //             x: -200,
+         //             y: 200
+         //          },
+         //          {
+         //             x: -200,
+         //             y: 200
+         //          },
+         //          {
+         //             x: -200,
+         //             y: 200
+         //          }
+         //       ]
+         //    },
+         //    goodGuy: {
+         //       scale: 1,
+         //       locationX: function() {
+         //          return TDG.GAME_WIDTH * .8;
+         //       },
+         //       locationY: function() {
+         //          return TDG.GAME_HEIGHT * .7;
+         //       },
+         //       move: function(goodGuyInstance) {
+         //          moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+         //       }
+         //    },
+         //    scoring: {
+         //       two: {
+         //          maxShotsFired: 7,
+         //          maxDuration: 8
+         //       },
+         //       three: {
+         //          maxShotsFired: 5,
+         //          maxDuration: 6
+         //       }
+         //    },
+         //    background: background2
+         // }
       };
 
       this.getLevels = function() {

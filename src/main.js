@@ -23,7 +23,7 @@
          this.levelManager.updateSelectedLevelToNextLevel();
 
          // add in order of desired layer
-         var background = this.game.add.sprite(0, TDG.GAME_HEIGHT, this.levelConfigs.background);//'background');
+         var background = this.game.add.sprite(0, TDG.GAME_HEIGHT, this.levelConfigs.background); //'background');
          background.width = TDG.GAME_WIDTH;
          background.height = TDG.GAME_HEIGHT;
          background.anchor.y = 1;
@@ -88,7 +88,8 @@
             this.goodGuyImage.scale.setTo(1.5 * TDG.GAME_SCALE_Y);
 
             //zoom button icon example
-            this.zoomButtonImage = this.game.add.sprite(this.titleText.x - (TDG.GAME_SCALE_Y * 600), this.titleText.y * 1.35,
+            this.zoomButtonImage = this.game.add.sprite(this.titleText.x - (TDG.GAME_SCALE_Y * 600), this.titleText
+               .y * 1.35,
                'zoom-out-icon');
             this.zoomButtonImage.anchor.setTo(.5, .5);
             this.zoomButtonImage.scale.setTo(.2 * TDG.GAME_SCALE_Y);
@@ -198,19 +199,22 @@
       goodGuyHit: function(goodGuyKilled, badguy) {
          //console.log("good guy hit");
 
-         this.levelStatus = TDG.LEVEL_FAILED_STATE;
+         if (TDG.LOCKED !== true) {
 
-         var goodGuyKillSprite = this.game.add.sprite(goodGuyKilled.x, goodGuyKilled.y, "goodguy-kill");
-         goodGuyKillSprite.anchor.setTo(0, 0);
-         goodGuyKillSprite.animations.add('goodGuyKill');
-         goodGuyKillSprite.animations.play('goodGuyKill', 30, false);
-         goodGuyKillSprite.scale.setTo(TDG.GAME_SCALE_Y * .25);
-         //makes the dead bodies appear in correct layer
-         this.deadGroup.add(goodGuyKillSprite);
+            this.levelStatus = TDG.LEVEL_FAILED_STATE;
 
-         goodGuyKilled.kill();
+            var goodGuyKillSprite = this.game.add.sprite(goodGuyKilled.x, goodGuyKilled.y, "goodguy-kill");
+            goodGuyKillSprite.anchor.setTo(0, 0);
+            goodGuyKillSprite.animations.add('goodGuyKill');
+            goodGuyKillSprite.animations.play('goodGuyKill', 30, false);
+            goodGuyKillSprite.scale.setTo(TDG.GAME_SCALE_Y * .25);
+            //makes the dead bodies appear in correct layer
+            this.deadGroup.add(goodGuyKillSprite);
 
-         this.levelFail();
+            goodGuyKilled.kill();
+
+            this.levelFail();
+         }
       },
       resetZoom: function() {
          if (TDG.ZOOMED_IN === true) {
@@ -222,13 +226,21 @@
          if (TDG.STARTED === true) {
             this.goodGuy.move();
             this.badGuys.pursueGoodGuy(this.goodGuy);
-            
+
+            //hack to help ignore collisions due to zoom
+            function isDuringZoom() {
+               if (TDG.LOCKED === true) { 
+                  return false;
+               }
+               return true;
+            }
+
             this.game.physics.arcade.overlap(
-               this.badGuys.getBadGuyGroup(), this.bullets.getBulletGroup(), this.badGuyHit, null, this
+               this.badGuys.getBadGuyGroup(), this.bullets.getBulletGroup(), this.badGuyHit, isDuringZoom, this
             );
 
             this.game.physics.arcade.collide(
-               this.badGuys.getBadGuyGroup(), this.goodGuy.getGoodGuyInstance(), this.goodGuyHit, null,
+               this.badGuys.getBadGuyGroup(), this.goodGuy.getGoodGuyInstance(), this.goodGuyHit, isDuringZoom,
                this
             );
 

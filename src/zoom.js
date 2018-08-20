@@ -9,6 +9,7 @@
       this.startPosY = this.game.camera.position.y;
 
       if (TDG.ZOOMED_IN === false) {
+         TDG.LOCKED = true;
          this.game.camera.scale.x = TDG.SCALE_FOR_ZOOM;
          this.game.camera.scale.y = TDG.SCALE_FOR_ZOOM;
 
@@ -18,6 +19,11 @@
          var y1 = this.game.camera.y + v;
 
          this.game.camera.setPosition(-x1, -y1);
+
+         //hack to help ignore collisions due to zoom
+         setTimeout(function() {
+            TDG.LOCKED = false; 
+         });
       } else {
          this.game.camera.scale.x = 1;
          this.game.camera.scale.y = 1;
