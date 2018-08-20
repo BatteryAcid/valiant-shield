@@ -220,15 +220,9 @@
       },
       update: function() {
          if (TDG.STARTED === true) {
-            // check if good guy reached finish
-            if (this.goodGuy.currentHeight() > this.levelConfigs.goodGuy.successY && this.goodGuy.currentWidth() <
-               this.levelConfigs.goodGuy.successX) {
-               this.goodGuy.move();
-               this.badGuys.pursueGoodGuy(this.goodGuy);
-            } else {
-               this.levelSuccess();
-            }
-
+            this.goodGuy.move();
+            this.badGuys.pursueGoodGuy(this.goodGuy);
+            
             this.game.physics.arcade.overlap(
                this.badGuys.getBadGuyGroup(), this.bullets.getBulletGroup(), this.badGuyHit, null, this
             );

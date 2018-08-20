@@ -6,20 +6,35 @@
       var background1 = "background";
       var background2 = "background2";
 
+      function moveGoodGuy(goodGuyInstance, speed) {
+         //TODO: for fun you could randomize the point to which the good guys is aiming for to
+         //simulate frantic running
+         var radians = game.physics.arcade.angleToXY(goodGuyInstance, TDG.GAME_WIDTH, TDG.GAME_HEIGHT *
+            .8);
+         var degrees = radians * (180 / Math.PI);
+         game.physics.arcade.velocityFromAngle(degrees, speed, goodGuyInstance.body.velocity);
+      }
+
       var levelConfigs = {
          0: {
             badGuyLocationX: function(count) {
-               return this.goodGuy.locationX() - (200 * TDG.GAME_SCALE_X); //TDG.GAME_WIDTH * .05;
+               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
             },
             badGuyLocationY: function(count) {
-               return this.goodGuy.locationY() - (10 * TDG.GAME_SCALE_Y); //TDG.GAME_HEIGHT * .75;
+               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
             },
             badGuys: {
                count: 1,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: TDG.BASE_SPEED * 3
+               speed: TDG.BASE_SPEED * 3,
+               locations: [
+                  {
+                     x: 200,
+                     y: 10
+                  }
+               ]
             },
             goodGuy: {
                scale: 1,
@@ -30,16 +45,8 @@
                   return TDG.GAME_HEIGHT * .8;
                },
                move: function(goodGuyInstance) {
-                  //TODO: for fun you could randomize the point to which the good guys is aiming for to
-                  //simulate frantic running
-                  var radians = game.physics.arcade.angleToXY(goodGuyInstance, TDG.GAME_WIDTH, TDG.GAME_HEIGHT *
-                     .8);
-                  var degrees = radians * (180 / Math.PI);
-                  //number is speed here
-                  game.physics.arcade.velocityFromAngle(degrees, TDG.BASE_SPEED * .6, goodGuyInstance.body.velocity);
-               },
-               successX: TDG.GAME_WIDTH + (TDG.GAME_WIDTH * .1), //TODO remove these
-               successY: TDG.GAME_HEIGHT * .1
+                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+               }
             },
             scoring: {
                two: {
@@ -57,31 +64,38 @@
          },
          1: {
             badGuyLocationX: function(count) {
-               return TDG.GAME_WIDTH * .1 + (count * game.rnd.integerInRange(100, 200));
+               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
             },
             badGuyLocationY: function(count) {
-               return TDG.GAME_HEIGHT * (game.rnd.integerInRange(500, 600) / 1000);
+               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
             },
             badGuys: {
-               count: 2,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: 80
+               speed: 80,
+               locations: [
+                  {
+                     x: 200,
+                     y: -100
+                  },
+                  {
+                     x: 200,
+                     y: 100
+                  }
+               ]
             },
             goodGuy: {
                scale: 1,
                locationX: function() {
-                  return TDG.GAME_WIDTH * .3;
+                  return TDG.GAME_WIDTH * .4;
                },
                locationY: function() {
-                  return TDG.GAME_HEIGHT * .75;
+                  return TDG.GAME_HEIGHT * .8;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
-               },
-               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
-               successY: TDG.GAME_HEIGHT * .1
+                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+               }
             },
             scoring: {
                two: {
@@ -97,17 +111,30 @@
          },
          2: {
             badGuyLocationX: function(count) {
-               return TDG.GAME_WIDTH * .4 + (count * game.rnd.integerInRange(100, 200));
+               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
             },
             badGuyLocationY: function(count) {
-               return TDG.GAME_HEIGHT * (game.rnd.integerInRange(500, 700) / 1000);
+               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
             },
             badGuys: {
-               count: 3,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: 80
+               speed: 80,
+               locations: [
+                  {
+                     x: 200,
+                     y: -100
+                  },
+                  {
+                     x: 200,
+                     y: 100
+                  },
+                  {
+                     x: -200,
+                     y: 200
+                  }
+               ]
             },
             goodGuy: {
                scale: 1,
@@ -115,13 +142,11 @@
                   return TDG.GAME_WIDTH * .5;
                },
                locationY: function() {
-                  return TDG.GAME_HEIGHT * .75;
+                  return TDG.GAME_HEIGHT * .8;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
-               },
-               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
-               successY: TDG.GAME_HEIGHT * .1
+                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+               }
             },
             scoring: {
                two: {
@@ -137,31 +162,46 @@
          },
          3: {
             badGuyLocationX: function(count) {
-               return TDG.GAME_WIDTH * .5 + (count * game.rnd.integerInRange(100, 200));
+               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
             },
             badGuyLocationY: function(count) {
-               return TDG.GAME_HEIGHT * (game.rnd.integerInRange(500, 700) / 1000);
+               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
             },
             badGuys: {
-               count: 4,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: 80
+               speed: 80,
+               locations: [
+                  {
+                     x: 250,
+                     y: -100
+                  },
+                  {
+                     x: 250,
+                     y: 100
+                  },
+                  {
+                     x: -250,
+                     y: 250
+                  },
+                  {
+                     x: -250,
+                     y: -250
+                  }
+               ]
             },
             goodGuy: {
                scale: 1,
                locationX: function() {
-                  return TDG.GAME_WIDTH * .7;
+                  return TDG.GAME_WIDTH * .6;
                },
                locationY: function() {
-                  return TDG.GAME_HEIGHT * .75;
+                  return TDG.GAME_HEIGHT * .8;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
-               },
-               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
-               successY: TDG.GAME_HEIGHT * .1
+                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+               }
             },
             scoring: {
                two: {
@@ -177,31 +217,50 @@
          },
          4: {
             badGuyLocationX: function(count) {
-               return TDG.GAME_WIDTH * .5 + (count * game.rnd.integerInRange(100, 200));
+               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
             },
             badGuyLocationY: function(count) {
-               return TDG.GAME_HEIGHT * (game.rnd.integerInRange(500, 700) / 1000);
+               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
             },
             badGuys: {
-               count: 5,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: 80
+               speed: 80,
+               locations: [
+                  {
+                     x: 250,
+                     y: -200
+                  },
+                  {
+                     x: 250,
+                     y: 200
+                  },
+                  {
+                     x: -250,
+                     y: 250
+                  },
+                  {
+                     x: -250,
+                     y: -300
+                  },
+                  {
+                     x: -250,
+                     y: 0
+                  }
+               ]
             },
             goodGuy: {
                scale: 1,
                locationX: function() {
-                  return TDG.GAME_WIDTH * .8;
+                  return TDG.GAME_WIDTH * .7;
                },
                locationY: function() {
-                  return TDG.GAME_HEIGHT * .7;
+                  return TDG.GAME_HEIGHT * .8;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
-               },
-               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
-               successY: TDG.GAME_HEIGHT * .1
+                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+               }
             },
             scoring: {
                two: {
@@ -217,17 +276,42 @@
          },
          5: {
             badGuyLocationX: function(count) {
-               return TDG.GAME_WIDTH * .5 + (count * game.rnd.integerInRange(100, 200));
+               return this.goodGuy.locationX() - (this.badGuys.locations[count].x * TDG.GAME_SCALE_X);
             },
             badGuyLocationY: function(count) {
-               return TDG.GAME_HEIGHT * (game.rnd.integerInRange(500, 700) / 1000);
+               return this.goodGuy.locationY() - (this.badGuys.locations[count].y * TDG.GAME_SCALE_Y);
             },
             badGuys: {
-               count: 5,
                scale: 1,
                image: 'badguy-walk',
                animation: 'badGuyWalk',
-               speed: 80
+               speed: 80,
+               locations: [
+                  {
+                     x: 200,
+                     y: -100
+                  },
+                  {
+                     x: 200,
+                     y: 100
+                  },
+                  {
+                     x: -200,
+                     y: 200
+                  },
+                  {
+                     x: -200,
+                     y: 200
+                  },
+                  {
+                     x: -200,
+                     y: 200
+                  },
+                  {
+                     x: -200,
+                     y: 200
+                  }
+               ]
             },
             goodGuy: {
                scale: 1,
@@ -238,10 +322,8 @@
                   return TDG.GAME_HEIGHT * .7;
                },
                move: function(goodGuyInstance) {
-                  goodGuyInstance.x += .3 * TDG.GAME_SCALE_Y;
-               },
-               successX: TDG.GAME_WIDTH - (TDG.GAME_WIDTH * .01),
-               successY: TDG.GAME_HEIGHT * .1
+                  moveGoodGuy(goodGuyInstance, TDG.BASE_SPEED * .6);
+               }
             },
             scoring: {
                two: {

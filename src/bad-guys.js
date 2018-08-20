@@ -8,7 +8,7 @@
       this.setupBadGuysForLevel = function(levelNumber) {
          levelConfigs = levels.getLevelConfigs(levelNumber);
 
-         for (var i = 0; i < levelConfigs.badGuys.count; i++) {
+         for (var i = 0; i < levelConfigs.badGuys.locations.length; i++) {
             var badGuy = badGuyGroup.create(levelConfigs.badGuyLocationX(i), levelConfigs.badGuyLocationY(i),
                levelConfigs.badGuys.image);
             //added offset scale to maintain quality of HD image
@@ -28,7 +28,7 @@
       }
 
       this.badGuysDefeated = function() {
-         return badGuyGroup.countDead() === levelConfigs.badGuys.count;
+         return badGuyGroup.countDead() === levelConfigs.badGuys.locations.length;
       }
 
       function setBadGuyVelocity(goodGuy, singleEnemy) {
