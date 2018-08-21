@@ -45,6 +45,7 @@
          this.game.load.spritesheet('goodguy-walk', 'images/good-guy-walk.png', 160, 239);
          this.game.load.spritesheet('goodguy-kill', 'images/good-guy-kill.png', 165, 197);
          this.game.load.spritesheet('badguy-walk', 'images/bad-guy-walk.png', 160, 239);
+         this.game.load.spritesheet('badguy-walk-left', 'images/bad-guy-walk-left.png', 160, 239);
          this.game.load.spritesheet('badguy-kill', 'images/bad-guy-kill.png', 165, 226);
          this.game.load.image('background', 'images/bg1.jpg');
          this.game.load.image('background2', 'images/bg2.jpg');

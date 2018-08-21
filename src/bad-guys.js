@@ -9,8 +9,14 @@
          levelConfigs = levels.getLevelConfigs(levelNumber);
 
          for (var i = 0; i < levelConfigs.badGuys.locations.length; i++) {
+
+            var animation = levelConfigs.badGuys.image;
+            if (levelConfigs.badGuys.locations[i].x < 0) {
+               animation = levelConfigs.badGuys.image + "-left";
+            }
             var badGuy = badGuyGroup.create(levelConfigs.badGuyLocationX(i), levelConfigs.badGuyLocationY(i),
-               levelConfigs.badGuys.image);
+               animation);
+
             //added offset scale to maintain quality of HD image
             badGuy.scale.setTo(TDG.GAME_SCALE_Y * .25);
             badGuy.animations.add(levelConfigs.badGuys.animation);
