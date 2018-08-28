@@ -23,7 +23,7 @@
       TDG.GAME_SCALE_Y = (TDG.GAME_HEIGHT/BASE_HEIGHT);
       TDG.GAME_SCALE_X = (TDG.GAME_WIDTH/BASE_WIDTH);
       TDG.BASE_SPEED = (TDG.GAME_WIDTH / 60);
-
+      TDG.LOCKED = false;
    };
    Boot.prototype = {
       init: function() {

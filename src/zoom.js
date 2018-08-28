@@ -21,9 +21,10 @@
          this.game.camera.setPosition(-x1, -y1);
 
          //hack to help ignore collisions due to zoom
+         //the 50 milliseconds seems like just enough to allow this to work properly on devices
          setTimeout(function() {
-            TDG.LOCKED = false; 
-         });
+            TDG.LOCKED = false;
+         }, 50);
       } else {
          this.game.camera.scale.x = 1;
          this.game.camera.scale.y = 1;
