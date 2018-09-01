@@ -9,9 +9,6 @@
       bulletGroup.enableBody = true;
       bulletGroup.physicsBodyType = Phaser.Physics.ARCADE;
       bulletGroup.createMultiple(50, 'bullet');
-      //not needed b/c we set lifespan.  Allows bullets to start off screen
-      // bulletGroup.setAll('checkWorldBounds', true);
-      // bulletGroup.setAll('outOfBoundsKill', true);
       bulletGroup.setAll('anchor.x', 0.5);
       bulletGroup.setAll('anchor.y', 0.5);
 
@@ -39,7 +36,16 @@
          return fireCount;
       }
 
-      //TODO: for fire on zoom in, maybe we can detect that last first and negate it?
+      this.setBulletScale = function(game) {
+         this.getBulletGroup().forEach(function(bullet) {
+            if (TDG.ZOOMED_IN === false) {
+               bullet.body.setSize(5, 5, 5, 5);
+            } else {
+               bullet.body.setSize(50, 50, -15, -20);
+            }
+         }, game.physics);
+      }
+
       this.fire = function(pointer) {
          if (this.game.time.now > this.getNextFire() && this.getBulletGroup().countDead() > 0) {
             this.setNextFire(this.game.time.now + this.getFireRate());

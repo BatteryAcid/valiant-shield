@@ -21,6 +21,9 @@
       var BASE_HEIGHT = 2048;
 
       TDG.GAME_SCALE_Y = (TDG.GAME_HEIGHT/BASE_HEIGHT);
+      TDG.GAME_SCALE_X = (TDG.GAME_WIDTH/BASE_WIDTH);
+      TDG.BASE_SPEED = (TDG.GAME_WIDTH / 60);
+      TDG.LOCKED = false;
    };
    Boot.prototype = {
       init: function() {
@@ -42,13 +45,16 @@
          this.game.load.spritesheet('goodguy-walk', 'images/good-guy-walk.png', 160, 239);
          this.game.load.spritesheet('goodguy-kill', 'images/good-guy-kill.png', 165, 197);
          this.game.load.spritesheet('badguy-walk', 'images/bad-guy-walk.png', 160, 239);
+         this.game.load.spritesheet('badguy-walk-left', 'images/bad-guy-walk-left.png', 160, 239);
          this.game.load.spritesheet('badguy-kill', 'images/bad-guy-kill.png', 165, 226);
          this.game.load.image('background', 'images/bg1.jpg');
+         this.game.load.image('background2', 'images/bg2.jpg');
          this.game.load.image('bullet', 'images/purple_ball.png');
          this.game.load.image('scope', 'images/scope.png');
          this.game.load.image('menu-bg', 'images/bg1.jpg');
          this.game.load.image('title-backdrop', 'images/title-backdrop.png');
-         this.game.load.image('intro-backdrop', 'images/intro-backdrop.png');
+         this.game.load.image('intro-text', 'images/intro-text.png');
+         this.game.load.image('zoom-out-icon', 'images/zoom-out-icon.png');
          this.game.load.spritesheet('button', 'images/button.png', 193, 71);
          this.game.load.spritesheet('start-button', 'images/start.png', 791, 280);
          this.game.load.spritesheet('introstart-button', 'images/introstart.png', 791, 280);

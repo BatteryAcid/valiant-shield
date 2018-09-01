@@ -39,9 +39,6 @@
       this.getNextLevelLocalStorageKey = function() {
          return "nextLevel";
       }
-      this.getLevelColor = function(levelNum) {
-         return this.levels.getLevels()[levelNum].menuColor;
-      }
       this.getSavedData = function() {
          if (localStorage.getItem(this.getLocalStorageName()) == null) {
             this.initStars();
