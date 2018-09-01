@@ -3,7 +3,6 @@
 // - bad guy should do dmg when next to good guy
 // - good guy should try to avoid bad guys? maybe just set varying path
 // - bad guys at different Y will be at different sizes
-// - consider placing objects in reference to screen center point
 
 (function() {
    var Main = function() {};
@@ -55,31 +54,13 @@
          quitButton.anchor.setTo(0.5, 0.5);
 
          //intro text with start button
-         if (this.levelConfigs.introText && this.levelConfigs.introText != '') {
-
-            //intro backdrop
-            var introBackdropScale = (TDG.GAME_HEIGHT * .8) / 1922;
-            this.introBackdrop = this.game.add.image(TDG.GAME_WIDTH / 2, TDG.GAME_HEIGHT * .5,
-               "intro-backdrop");
-            this.introBackdrop.anchor.set(0.5);
-            this.introBackdrop.scale.setTo(introBackdropScale, introBackdropScale);
-
-            //intro text
-            var textHeightY = TDG.GAME_HEIGHT * .08;
-            var textScale = textHeightY / 80;
-            var textSize = textScale * 80;
-            this.titleText = this.game.make.text(this.game.world.centerX, TDG.GAME_HEIGHT * .4 + 20,
-               this.levelConfigs.introText, {
-                  font: textSize + "px Arial",
-                  fill: '#FFCD3A',
-                  align: 'center',
-                  wordWrap: true,
-                  wordWrapWidth: this.introBackdrop.width * .85
-               });
-
-            this.titleText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 5);
-            this.titleText.anchor.set(0.5);
-            this.game.add.existing(this.titleText);
+         if (this.levelConfigs.introTextName && this.levelConfigs.introTextName != '') {
+            //intro text image
+            var introTextImageScale = (TDG.GAME_HEIGHT * .5) / 1040;
+            this.introTextImage = this.game.add.image(TDG.GAME_WIDTH * .5, TDG.GAME_HEIGHT * .4,
+               this.levelConfigs.introTextName);
+            this.introTextImage.anchor.set(.5);
+            this.introTextImage.scale.setTo(introTextImageScale);
 
             //good guy image
             this.goodGuyImage = this.game.add.sprite(TDG.GAME_WIDTH * .5, TDG.GAME_HEIGHT * .75,
@@ -87,14 +68,7 @@
             this.goodGuyImage.anchor.setTo(.5, .5);
             this.goodGuyImage.scale.setTo(1.5 * TDG.GAME_SCALE_Y);
 
-            //zoom button icon example
-            this.zoomButtonImage = this.game.add.sprite(this.titleText.x - (TDG.GAME_SCALE_Y * 600), this.titleText
-               .y * 1.35,
-               'zoom-out-icon');
-            this.zoomButtonImage.anchor.setTo(.5, .5);
-            this.zoomButtonImage.scale.setTo(.2 * TDG.GAME_SCALE_Y);
-
-            this.startGameButton = this.game.add.button(TDG.GAME_WIDTH * .5, this.introBackdrop.height * 1.07,
+            this.startGameButton = this.game.add.button(TDG.GAME_WIDTH * .5, TDG.GAME_HEIGHT * .85,
                'introstart-button',
                this.startGame,
                this, 2, 1, 0);
@@ -113,17 +87,11 @@
          if (this.startGameButton) {
             this.startGameButton.pendingDestroy = true;
          }
-         if (this.titleText) {
-            this.titleText.destroy();
-         }
-         if (this.introBackdrop) {
-            this.introBackdrop.destroy();
+         if (this.introTextImage) {
+            this.introTextImage.destroy();
          }
          if (this.goodGuyImage) {
             this.goodGuyImage.destroy();
-         }
-         if (this.zoomButtonImage) {
-            this.zoomButtonImage.destroy();
          }
          TDG.STARTED = true;
          this.startTime = new Date();

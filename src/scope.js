@@ -30,9 +30,9 @@
          this.x = pointer.x;
          this.y = pointer.y;
 
-         this.zoomOutButton = game.add.sprite((this.game.camera.x / 4) + (this.zoomWidth - TDG.GAME_SCALE_Y * 50), (this.game.camera
+         this.zoomOutButton = game.add.sprite((this.game.camera.x / 4), (this.game.camera
             .y / 4) + (this.zoomHeight * .5 - TDG.GAME_SCALE_Y * 50), 'zoom-out-icon');
-         this.zoomOutButton.anchor.set(0.5);
+         this.zoomOutButton.anchor.set(0);
          this.zoomOutButton.inputEnabled = true;
          this.zoomOutButton.scale.setTo(TDG.GAME_SCALE_Y * .08);
          this.zoomOutButton.events.onInputDown.add(this.zoomOutClicked, this);

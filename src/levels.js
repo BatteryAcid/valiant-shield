@@ -58,9 +58,8 @@
                   maxDuration: 1.5
                }
             },
-            background: background1
-            //,
-            //introText: "Protect our hero from the growing malice! Tap to zoom then tap to fire.       to zoom out"
+            background: background1,
+            introTextName: "intro-text"
          },
          1: {
             badGuyLocationX: function(count) {
