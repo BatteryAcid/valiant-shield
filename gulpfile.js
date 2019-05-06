@@ -22,7 +22,7 @@ gulp.task('uglify', function() {
 gulp.task('move_assets', ['clean:assets'], function() {
    // the base option sets the relative root for the set of files,
    // preserving the folder structure
-   gulp.src(['./images/*'], {
+   gulp.src(['./images/*', './audio/*', './lib/*', 'index.html'], {
          base: './'
       })
       .pipe(gulp.dest('dist/'));

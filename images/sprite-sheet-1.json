@@ -1,0 +1,428 @@
+{"frames": {
+
+"badguy/emergeleft/badguy-emerge_01.png":
+{
+	"frame": {"x":194,"y":1196,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_02.png":
+{
+	"frame": {"x":776,"y":1196,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_03.png":
+{
+	"frame": {"x":582,"y":1196,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_04.png":
+{
+	"frame": {"x":0,"y":1415,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_05.png":
+{
+	"frame": {"x":388,"y":1196,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_06.png":
+{
+	"frame": {"x":0,"y":1196,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_07.png":
+{
+	"frame": {"x":788,"y":977,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeleft/badguy-emerge_08.png":
+{
+	"frame": {"x":194,"y":1415,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_01.png":
+{
+	"frame": {"x":776,"y":1415,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_02.png":
+{
+	"frame": {"x":388,"y":1634,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_03.png":
+{
+	"frame": {"x":776,"y":1634,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_04.png":
+{
+	"frame": {"x":582,"y":1634,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_05.png":
+{
+	"frame": {"x":194,"y":1634,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_06.png":
+{
+	"frame": {"x":0,"y":1634,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_07.png":
+{
+	"frame": {"x":582,"y":1415,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/emergeright/badguy-emerge_08.png":
+{
+	"frame": {"x":388,"y":1415,"w":194,"h":219},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":219},
+	"sourceSize": {"w":194,"h":219}
+},
+"badguy/kill/bad-guy-kill_01.png":
+{
+	"frame": {"x":584,"y":765,"w":148,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":211},
+	"sourceSize": {"w":148,"h":211}
+},
+"badguy/kill/bad-guy-kill_02.png":
+{
+	"frame": {"x":0,"y":553,"w":153,"h":199},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":199},
+	"sourceSize": {"w":153,"h":199}
+},
+"badguy/kill/bad-guy-kill_03.png":
+{
+	"frame": {"x":497,"y":0,"w":167,"h":144},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":144},
+	"sourceSize": {"w":167,"h":144}
+},
+"badguy/kill/bad-guy-kill_04.png":
+{
+	"frame": {"x":333,"y":0,"w":164,"h":133},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":164,"h":133},
+	"sourceSize": {"w":164,"h":133}
+},
+"badguy/kill/bad-guy-kill_05.png":
+{
+	"frame": {"x":664,"y":0,"w":167,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":146},
+	"sourceSize": {"w":167,"h":146}
+},
+"badguy/walkleft/01.png":
+{
+	"frame": {"x":439,"y":553,"w":144,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":144,"h":212},
+	"sourceSize": {"w":144,"h":212}
+},
+"badguy/walkleft/02.png":
+{
+	"frame": {"x":153,"y":553,"w":143,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":143,"h":212},
+	"sourceSize": {"w":143,"h":212}
+},
+"badguy/walkleft/03.png":
+{
+	"frame": {"x":292,"y":765,"w":146,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":212},
+	"sourceSize": {"w":146,"h":212}
+},
+"badguy/walkleft/04.png":
+{
+	"frame": {"x":0,"y":977,"w":150,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":211},
+	"sourceSize": {"w":150,"h":211}
+},
+"badguy/walkleft/05.png":
+{
+	"frame": {"x":466,"y":977,"w":161,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":161,"h":211},
+	"sourceSize": {"w":161,"h":211}
+},
+"badguy/walkleft/06.png":
+{
+	"frame": {"x":150,"y":977,"w":158,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":158,"h":211},
+	"sourceSize": {"w":158,"h":211}
+},
+"badguy/walkleft/07.png":
+{
+	"frame": {"x":727,"y":553,"w":146,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":212},
+	"sourceSize": {"w":146,"h":212}
+},
+"badguy/walkleft/08.png":
+{
+	"frame": {"x":438,"y":765,"w":146,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":212},
+	"sourceSize": {"w":146,"h":212}
+},
+"badguy/walkright/01.png":
+{
+	"frame": {"x":146,"y":765,"w":146,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":212},
+	"sourceSize": {"w":146,"h":212}
+},
+"badguy/walkright/02.png":
+{
+	"frame": {"x":0,"y":765,"w":146,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":212},
+	"sourceSize": {"w":146,"h":212}
+},
+"badguy/walkright/03.png":
+{
+	"frame": {"x":308,"y":977,"w":158,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":158,"h":211},
+	"sourceSize": {"w":158,"h":211}
+},
+"badguy/walkright/04.png":
+{
+	"frame": {"x":627,"y":977,"w":161,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":161,"h":211},
+	"sourceSize": {"w":161,"h":211}
+},
+"badguy/walkright/05.png":
+{
+	"frame": {"x":732,"y":765,"w":150,"h":211},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":150,"h":211},
+	"sourceSize": {"w":150,"h":211}
+},
+"badguy/walkright/06.png":
+{
+	"frame": {"x":873,"y":553,"w":146,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":212},
+	"sourceSize": {"w":146,"h":212}
+},
+"badguy/walkright/07.png":
+{
+	"frame": {"x":296,"y":553,"w":143,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":143,"h":212},
+	"sourceSize": {"w":143,"h":212}
+},
+"badguy/walkright/08.png":
+{
+	"frame": {"x":583,"y":553,"w":144,"h":212},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":144,"h":212},
+	"sourceSize": {"w":144,"h":212}
+},
+"goodguy/kill/good-guy-kill_01.png":
+{
+	"frame": {"x":160,"y":173,"w":137,"h":187},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":137,"h":187},
+	"sourceSize": {"w":137,"h":187}
+},
+"goodguy/kill/good-guy-kill_02.png":
+{
+	"frame": {"x":831,"y":0,"w":149,"h":173},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":149,"h":173},
+	"sourceSize": {"w":149,"h":173}
+},
+"goodguy/kill/good-guy-kill_03.png":
+{
+	"frame": {"x":0,"y":173,"w":160,"h":163},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":163},
+	"sourceSize": {"w":160,"h":163}
+},
+"goodguy/kill/good-guy-kill_04.png":
+{
+	"frame": {"x":0,"y":0,"w":165,"h":119},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":165,"h":119},
+	"sourceSize": {"w":165,"h":119}
+},
+"goodguy/kill/good-guy-kill_05.png":
+{
+	"frame": {"x":165,"y":0,"w":168,"h":126},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":168,"h":126},
+	"sourceSize": {"w":168,"h":126}
+},
+"goodguy/static/good-guy-static_01.png":
+{
+	"frame": {"x":297,"y":173,"w":137,"h":187},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":137,"h":187},
+	"sourceSize": {"w":137,"h":187}
+},
+"goodguy/walkright/good-guy-walk_01.png":
+{
+	"frame": {"x":738,"y":173,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_02.png":
+{
+	"frame": {"x":608,"y":363,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_03.png":
+{
+	"frame": {"x":304,"y":363,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_04.png":
+{
+	"frame": {"x":456,"y":363,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_05.png":
+{
+	"frame": {"x":760,"y":363,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_06.png":
+{
+	"frame": {"x":0,"y":363,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_07.png":
+{
+	"frame": {"x":152,"y":363,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_08 copy.png":
+{
+	"frame": {"x":586,"y":173,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+},
+"goodguy/walkright/good-guy-walk_08.png":
+{
+	"frame": {"x":434,"y":173,"w":152,"h":190},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":190},
+	"sourceSize": {"w":152,"h":190}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sprite-sheet-1.png",
+	"format": "RGBA8888",
+	"size": {"w":1019,"h":1853},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9ea50582e97c1950637dfcbca2e6b0bd:480f35cb6afece370e7e3346ebce8f04:67115edbc7072cade9f01c626228bbac$"
+}
+}

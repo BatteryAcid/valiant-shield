@@ -18,6 +18,7 @@
          this.game.load.spritesheet("levelthumb", "images/levelthumb.png", 180, 180);
          this.game.load.image("transp", "images/transp.png");
          this.game.load.image("level-select-header", "images/level-select-header.png");
+         this.game.load.image("menu-back", "images/menu-back.jpg");
       },
       create: function() {
          // columns of thumbnails in each page
@@ -40,7 +41,11 @@
          var spacingX = (this.getWorkingWidth() - (columns * thumbWidth)) / (columns - 1) * .6;
          var spacingY = ((this.getWorkingHeight() - titleSpace) - (rows * thumbHeight)) / (rows - 1) * .6;
 
-         this.game.stage.backgroundColor = "#647883";
+         var background = this.game.add.image(0, TDG.GAME_HEIGHT, 'menu-back');
+         background.width = TDG.GAME_WIDTH;
+         background.height = TDG.GAME_HEIGHT;
+         background.anchor.y = 1;
+
          var levelSelectHeader = this.game.add.image(TDG.GAME_WIDTH / 2, 50 * scaleRatio,
             "level-select-header");
          levelSelectHeader.anchor.set(0.5);

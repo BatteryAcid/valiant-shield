@@ -12,3 +12,5 @@ test/out-fixtures/*
 test/watch-*.txt
 gulp.1
 temp
+./dist
+dist.*

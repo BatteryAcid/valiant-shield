@@ -24,6 +24,14 @@
       TDG.GAME_SCALE_X = (TDG.GAME_WIDTH/BASE_WIDTH);
       TDG.BASE_SPEED = (TDG.GAME_WIDTH / 60);
       TDG.LOCKED = false;
+
+      //dev
+      //TDG.GB_SPEED_OFFSET = 1;
+      //ionic
+      TDG.GB_SPEED_OFFSET = 1;
+      //itch.io
+      // TDG.GB_SPEED_OFFSET = .72;
+
    };
    Boot.prototype = {
       init: function() {
@@ -40,28 +48,22 @@
          }
       },
       preload: function() {
-         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL; 
-         this.game.load.image('guy', 'images/guy.png');
-         this.game.load.spritesheet('goodguy-walk', 'images/good-guy-walk.png', 160, 239);
-         this.game.load.spritesheet('goodguy-kill', 'images/good-guy-kill.png', 165, 197);
-         this.game.load.spritesheet('badguy-walk', 'images/bad-guy-walk.png', 160, 239);
-         this.game.load.spritesheet('badguy-walk-left', 'images/bad-guy-walk-left.png', 160, 239);
-         this.game.load.spritesheet('badguy-kill', 'images/bad-guy-kill.png', 165, 226);
+         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+         this.game.load.audio('gunshot', 'audio/gunshot.wav');
+         this.game.load.atlasJSONHash('scene', 'images/sprite-sheet-1.png', 'images/sprite-sheet-1.json');
          this.game.load.image('background', 'images/bg1.jpg');
-         this.game.load.image('background2', 'images/bg2.jpg');
          this.game.load.image('bullet', 'images/purple_ball.png');
          this.game.load.image('scope', 'images/scope.png');
          this.game.load.image('menu-bg', 'images/bg1.jpg');
          this.game.load.image('title-backdrop', 'images/title-backdrop.png');
          this.game.load.image('intro-text', 'images/intro-text.png');
          this.game.load.image('zoom-out-icon', 'images/zoom-out-icon.png');
-         this.game.load.spritesheet('button', 'images/button.png', 193, 71);
-         this.game.load.spritesheet('start-button', 'images/start.png', 791, 280);
+         this.game.load.spritesheet('start-button', 'images/start.png', 791, 263);
          this.game.load.spritesheet('introstart-button', 'images/introstart.png', 791, 280);
-         this.game.load.spritesheet('quit-button', 'images/quit.png', 791, 280);
+         this.game.load.spritesheet('quit-button', 'images/quit.png', 786, 261);
          this.game.load.spritesheet('back-button', 'images/back.png', 799, 280);
          this.game.load.spritesheet('levels-button', 'images/levels.png', 791, 280);
-         this.game.load.spritesheet('playagain-button', 'images/playagain.png', 791, 280);
+         this.game.load.spritesheet('playagain-button', 'images/playagain.png', 786, 261);
       },
       create: function() {
          this.game.state.add('main', TDG.Main);

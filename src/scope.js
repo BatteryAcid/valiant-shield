@@ -1,4 +1,6 @@
 (function() {
+   //Note: if we find we keep adding additional bodies to scale here, create a 
+   //zoom manager with a list of bodies to pass in to perform scaling on
    var Scope = function(game, zoom, bullets) {
       this.game = game;
       this.zoom = zoom;
@@ -12,6 +14,9 @@
       this.inputEnabled = true;
       this.input.enableDrag(false);
       this.events.onDragStop.add(this.onDragStop, this);
+
+      this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+      game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
 
       this.scale.setTo(TDG.GAME_SCALE_Y * 1.5);
 
@@ -53,6 +58,10 @@
          x: this.world.x,
          y: this.world.y
       };
+
+      if (this.spaceKey.isDown) {
+         this.zoomOutClicked();
+      }
    };
    Scope.prototype.zoomOutClicked = function(pointer) {
       if (TDG.ZOOMED_IN === true) {

@@ -25,7 +25,7 @@
             return stateTextContent;
          }
 
-         this.stateText = this.game.make.text(this.game.world.centerX, TDG.GAME_HEIGHT * .245,
+         this.stateText = this.game.make.text(this.game.world.centerX, TDG.GAME_HEIGHT * .28,
             determineStateText(), {
                font: .6 * textSize + "px Arial",
                fill: '#000',

@@ -36,18 +36,9 @@
          return fireCount;
       }
 
-      this.setBulletScale = function(game) {
-         this.getBulletGroup().forEach(function(bullet) {
-            if (TDG.ZOOMED_IN === false) {
-               bullet.body.setSize(5, 5, 5, 5);
-            } else {
-               bullet.body.setSize(50, 50, -15, -20);
-            }
-         }, game.physics);
-      }
-
       this.fire = function(pointer) {
          if (this.game.time.now > this.getNextFire() && this.getBulletGroup().countDead() > 0) {
+            gunshot = this.game.add.audio('gunshot');
             this.setNextFire(this.game.time.now + this.getFireRate());
             var bullet = this.getBulletGroup().getFirstDead();
             bullet.reset(-10, -10);
@@ -59,10 +50,13 @@
             bullet.x = TDG.SCOPE.x / TDG.SCALE_FOR_ZOOM + 2;
             bullet.y = TDG.SCOPE.y / TDG.SCALE_FOR_ZOOM - 3;
 
+            bullet.body.syncBounds = true;
+
             //shake effect for fun
             this.game.camera.shake(.02, 100);
 
             this.incrementFireCount();
+            gunshot.play('',0,.25);
          }
       }
    };

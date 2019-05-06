@@ -34,3 +34,15 @@ Note: you can also run the individual gulp commands for specific needs like `gul
 ```
 
 - copy everything inside the `dist` folder to the root of the `www` ionic project folder. 
+
+## Run built in server for testing  
+
+> http-server -s -p 8101  
+
+## Itch.io build
+
+- Index.html - make sure all prod imports are uncommented and dev sources are commented
+- boot.js - make sure itch TDG.GB_SPEED_OFFSET is uncommented and others are commented out 
+- run gulp
+- zip the dist folder
+- upload using itch application or website
